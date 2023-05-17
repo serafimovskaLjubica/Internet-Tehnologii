@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FriendModel>
+@using FriendMVC
+
+<head>
+    <link href="~/Content/Style.css" type="text/css" rel="stylesheet" />
+</head>
+
+@{
+    ViewBag.Title = "showFriends";
+}
+
+<h2>ShowFriends</h2>
+
+<table id="tabela">
+    <tr>
+        <th>Friend ID</th>
+        <th>Friend Name</th>
+        <th>Place</th>
+        <th></th>
+    </tr>
+
+    @foreach (FriendModel friend in Model)
+    {
+        <tr>
+            <td>@friend.Id</td>
+            <td>@friend.Ime</td>
+            <td>@friend.MestoZiveenje</td>
+            <td>
+                <button type="button">@Html.ActionLink("Edit", "Update", new { id = friend.Id })</button>
+                <button type="button">@Html.ActionLink("Delete", "DeleteFriend", new { id = friend.Id })</button>
+            </td>
+        </tr>
+
+    }
+</table>
+
+<div>
+    <button type="button">@Html.ActionLink("Add new friend", "Create")</button>
+</div>

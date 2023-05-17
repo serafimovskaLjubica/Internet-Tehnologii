@@ -1,0 +1,33 @@
+﻿@model Lab_3.Models.FriendModel
+
+@{
+    ViewBag.Title = "update";
+}
+
+<h2>Update</h2>
+
+@using (@Html.BeginForm("Update", "Friend", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Id)
+        @Html.TextBoxFor(m => m.Id, new { @class = "form-control", type = "number" })
+        @Html.ValidationMessageFor(m => m.Id)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Ime)
+        @Html.TextBoxFor(m => m.Ime, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Ime)
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.MestoZiveenje)
+        @Html.TextBoxFor(m => m.MestoZiveenje, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MestoZiveenje)
+
+    </div>
+
+    <button type="submit">Update</button>
+    <button type="button">@Html.ActionLink("Back", "ShowFriends")</button>
+}
